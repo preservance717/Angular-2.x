@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/node,angular,windows,webstorm
 
 ### Angular ###
-## Angular ##
+.gitignore
 # compiled output
 /dist
 /tmp
@@ -177,14 +177,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/node,angular,windows,webstorm
-.angular-cli.json
-.editorconfig
-.gitignore
-README.md
-e2e/
-karma.conf.js
-package.json
-protractor.conf.js
-src/
-tsconfig.json
-tslint.json
