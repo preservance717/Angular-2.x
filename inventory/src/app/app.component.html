@@ -1,1 +1,3 @@
-<div class="inventory-app">(Product will go here soon)</div>
+<div class="inventory-app">
+  <product-list [productList]="products" (onProductSelected)="productSelected($event)"></product-list>
+</div>
