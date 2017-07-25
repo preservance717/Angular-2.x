@@ -17,6 +17,7 @@ import {Product} from "../../product.model";
 <product-department [product]="product"></product-department>
 </div>
 </div>
+<price-display [price]="product.price"></price-display>
 `
 })
 
@@ -47,4 +48,14 @@ export class ProductDepartment {
 export class ProductImage {
   product: Product;
 }
+
+@Component({
+  selector: 'price-display',
+  inputs: ['price'],
+  template: `<div class="price-display">{{price}}</div>`
+})
+export class PriceDispaly {
+  price: number;
+}
+
 
