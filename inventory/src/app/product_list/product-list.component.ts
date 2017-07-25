@@ -8,9 +8,9 @@ import {Product} from "../product.model";
   inputs: ['productList'],
   outputs: ['onProductSelected'],
   template: `<div class="ui items">
-<div *ngFor="let myProduct of productList">
+<product-row *ngFor="let myProduct of productList">
 {{myProduct.name}}
-</div>
+</product-row>
 </div>`
 })
 export class ProductList {
