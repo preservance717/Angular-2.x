@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5201e02-a254-4988-ba2f-bedbb6a75a7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inventory/src/app/app.module.ts" afterPath="$PROJECT_DIR$/inventory/src/app/app.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts" afterPath="$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts" afterPath="$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,32 +23,77 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="product-list.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts">
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inventory/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="53">
+              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product-row.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
-                <marker date="1500990940403" expanded="true" signature="275:368" ph="..." />
-                <marker date="1500990940403" expanded="true" signature="327:350" ph="..." />
-                <marker date="1500990940403" expanded="true" signature="327:361" ph="..." />
+                <element signature="e#42#82#0" expanded="true" />
+                <marker date="1500991715691" expanded="true" signature="315:475" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="315:477" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="315:577" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="315:714" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="401:475" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="501:570" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="748:911" ph="..." />
+                <marker date="1500991715691" expanded="true" signature="810:904" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product-row.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts">
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inventory/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
-              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="30">
+              <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inventory/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product-list.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
               <folding>
-                <element signature="e#42#82#0" expanded="true" />
-                <marker date="1500990940450" expanded="true" signature="315:475" ph="..." />
-                <marker date="1500990940450" expanded="true" signature="315:482" ph="..." />
-                <marker date="1500990940450" expanded="true" signature="315:676" ph="..." />
-                <marker date="1500990940450" expanded="true" signature="315:829" ph="..." />
-                <marker date="1500990940450" expanded="true" signature="401:475" ph="..." />
+                <marker date="1500991909234" expanded="true" signature="275:371" ph="..." />
+                <marker date="1500991909234" expanded="true" signature="349:353" ph="..." />
+                <marker date="1500991909234" expanded="true" signature="349:364" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.model.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inventory/src/app/product.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+              <folding>
+                <element signature="n#!!doc;n#Product#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -80,11 +126,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/inventory/src/index.html" />
         <option value="$PROJECT_DIR$/inventory/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/inventory/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/inventory/src/app/product.model.ts" />
         <option value="$PROJECT_DIR$/inventory/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts" />
         <option value="$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts" />
+        <option value="$PROJECT_DIR$/inventory/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts" />
       </list>
     </option>
   </component>
@@ -336,12 +382,12 @@
       <workItem from="1500902473037" duration="2712000" />
       <workItem from="1500947585271" duration="14000" />
       <workItem from="1500969790985" duration="802000" />
-      <workItem from="1500989608030" duration="1332000" />
+      <workItem from="1500989608030" duration="2304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13217000" />
+    <option name="totallyTimeSpent" value="14189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
@@ -390,7 +436,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -418,9 +464,9 @@
         <state relative-caret-position="540">
           <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
-            <marker date="1500990940403" expanded="true" signature="275:368" ph="..." />
-            <marker date="1500990940403" expanded="true" signature="327:350" ph="..." />
-            <marker date="1500990940403" expanded="true" signature="327:361" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="275:371" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="349:353" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="349:364" ph="..." />
           </folding>
         </state>
       </provider>
@@ -458,9 +504,9 @@
         <state relative-caret-position="630">
           <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
-            <marker date="1500990940403" expanded="true" signature="275:368" ph="..." />
-            <marker date="1500990940403" expanded="true" signature="327:350" ph="..." />
-            <marker date="1500990940403" expanded="true" signature="327:361" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="275:371" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="349:353" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="349:364" ph="..." />
           </folding>
         </state>
       </provider>
@@ -553,45 +599,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventory/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inventory/src/app/product.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-          <folding>
-            <element signature="n#!!doc;n#Product#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inventory/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="84" lean-forward="false" selection-start-line="1" selection-start-column="84" selection-end-line="1" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.gitconfig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inventory/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -607,7 +618,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -628,29 +639,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts">
+    <entry file="file://$PROJECT_DIR$/inventory/src/app/product.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="30">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
-            <marker date="1500990940403" expanded="true" signature="275:368" ph="..." />
-            <marker date="1500990940403" expanded="true" signature="327:350" ph="..." />
-            <marker date="1500990940403" expanded="true" signature="327:361" ph="..." />
+            <element signature="n#!!doc;n#Product#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-row/product-row.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="210">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#42#82#0" expanded="true" />
-            <marker date="1500990940450" expanded="true" signature="315:475" ph="..." />
-            <marker date="1500990940450" expanded="true" signature="315:482" ph="..." />
-            <marker date="1500990940450" expanded="true" signature="315:676" ph="..." />
-            <marker date="1500990940450" expanded="true" signature="315:829" ph="..." />
-            <marker date="1500990940450" expanded="true" signature="401:475" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="315:475" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="315:477" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="315:577" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="315:714" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="401:475" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="501:570" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="748:911" ph="..." />
+            <marker date="1500991715691" expanded="true" signature="810:904" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory/src/app/product_list/product-list.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+          <folding>
+            <marker date="1500991909234" expanded="true" signature="275:371" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="349:353" ph="..." />
+            <marker date="1500991909234" expanded="true" signature="349:364" ph="..." />
           </folding>
         </state>
       </provider>

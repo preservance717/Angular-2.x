@@ -3,16 +3,19 @@ import {NgModule} from '@angular/core';
 
 import {InventoryApp} from './app.component';
 import {ProductList} from "./product_list/product-list.component";
+import {ProductRow, ProductDepartment, ProductImage} from "./product_list/product-row/product-row.component";
 
 @NgModule({
   declarations: [
     InventoryApp,
-    ProductList
+    ProductList,
+    ProductRow,
+    ProductImage,
+    ProductDepartment
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
   bootstrap: [InventoryApp]
 })
 export class AppModule {
