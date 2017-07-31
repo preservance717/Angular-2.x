@@ -1,0 +1,25 @@
+<div>switch用法</div>
+<div class="container" [ngSwitch]="myVar">
+  <div *ngSwitchCase="'A'">var is A</div>
+  <div *ngSwitchCase="'B'">var is B</div>
+  <div *ngSwitchDefault>var is something else</div>
+</div>
+<div [ngSwitch]="option">
+  <div>
+    <a href="#" (click)="getPeople()">people</a>
+    <a href="#" (click)="getProject()">project</a>
+    <a href="#" (click)="getCompany()">company</a>
+  </div>
+  <div>
+    <div *ngSwitchDefault>
+      people
+    </div>
+    <div *ngSwitchCase="'project'">
+      project
+    </div>
+    <div *ngSwitchCase="'company'">
+      company
+    </div>
+  </div>
+</div>
+
