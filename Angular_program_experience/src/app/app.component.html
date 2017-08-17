@@ -1,4 +1,11 @@
-<ngx-switch></ngx-switch>
+<a routerLinkActive="active" routerLink="switch">switch</a>
+<a routerLinkActive="active" routerLink="simple">simple</a>
+<a [routerLink]="[{ outlets: { popup: ['pop'] } }]">pop</a>
+
+<router-outlet></router-outlet>
+<router-outlet name="popup"></router-outlet>
+
+<div style="height: 100px;width: 200px; position: relative; top:900px;"></div>
 <div class="ui input">
   <input type="text" name="color" value="{{color}}" #colorinput>
 </div>
@@ -20,8 +27,4 @@
   <span [style.background-color]="color" style="color:white">
     {{color}} background
   </span>
-</div>
-
-<div>
-  <simple-http></simple-http>
 </div>
