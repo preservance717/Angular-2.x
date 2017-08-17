@@ -7,28 +7,22 @@ import {SimpleHttpComponent} from "./simple_http/simple-http.component";
 import {HttpModule} from "@angular/http";
 import {Routes, RouterModule} from "@angular/router";
 import {PopComponent} from "./pop/pop.component";
+import {StyleComponent} from "./style/style.component";
 
 const appRoutes: Routes = [
   { path: 'switch', component: SwitchComponent },
   { path: 'simple', component: SimpleHttpComponent},
-  { path: 'pop', component: PopComponent,outlet:'popup'},
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: 'style', component: StyleComponent},
+  { path: 'pop', component: PopComponent,outlet:'popup'}
+
 ];
 @NgModule({
   declarations: [
     AppComponent,
     SwitchComponent,
     SimpleHttpComponent,
-    PopComponent
+    PopComponent,
+    StyleComponent
   ],
   imports: [
     BrowserModule,
