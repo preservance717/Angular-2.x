@@ -1,0 +1,10 @@
+<div>
+  <!--<tree-root [nodes]="nodes" [focused]="true" [options]="options"></tree-root>-->
+  <tree-root [options]="options"
+    [nodes]="nodes"
+    (toggleExpanded)="onEvent($event)"
+    (activate)="onEvent($event)"
+    (focus)="onEvent($event)"
+    (blur)="onEvent($event)"
+  ></tree-root>
+</div>
