@@ -1,0 +1,38 @@
+<h1>Angular2 Context Menu Demo</h1>
+<div (click)="$event.preventDefault()" style="margin:20px; padding:20px">
+  <div style="position: relative">
+    <div style="margin:20px; padding:20px;transform: translate3d(0px, 0px, 0px)">
+      <div (click)="$event.preventDefault()" style="transform: translate3d(10px, -10px, 0px)">
+        <h3>Static</h3>
+        <ul>
+          <li *ngFor="let item of items" [contextMenu]="static">Right Click: {{item?.name}}</li>
+        </ul>
+        <context-menu #static (close)="showMessage('closed', $event)" (open)="showMessage('open', $event)">
+          <ng-template contextMenuItem [visible]="true" [enabled]="false" (execute)="showMessage('Hi, someone')"
+                       [subMenu]="saySubMenu">
+            Say hi
+          </ng-template>
+          <context-menu #saySubMenu>
+            <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
+              ...hi!
+            </ng-template>
+            <ng-template contextMenuItem (execute)="showMessage('Hola, ' + $event.item.name)">
+              ...hola!
+            </ng-template>
+            <ng-template contextMenuItem (execute)="showMessage('Salut, ' + $event.item.name)">
+              ...salut!
+            </ng-template>
+          </context-menu>
+          <ng-template contextMenuItem [visible]="false" (execute)="showMessage('Hi, someone')">
+            This will never show...
+          </ng-template>
+          <ng-template contextMenuItem [divider]="true"></ng-template>
+          <ng-template contextMenuItem [visible]="true" [enabled]="true"
+                       (execute)="showMessage('Someone said: something')">
+            Bye, someone
+          </ng-template>
+        </context-menu>
+      </div>
+    </div>
+  </div>
+</div>
