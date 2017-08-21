@@ -1,10 +1,17 @@
 <div>
-  <!--<tree-root [nodes]="nodes" [focused]="true" [options]="options"></tree-root>-->
-  <tree-root [options]="options"
+  <tree-root
+    #tree
     [nodes]="nodes"
-    (toggleExpanded)="onEvent($event)"
-    (activate)="onEvent($event)"
-    (focus)="onEvent($event)"
-    (blur)="onEvent($event)"
-  ></tree-root>
+    [options]="customTemplateStringOptions"
+    [focused]="true"
+    (event)="onEvent($event)"
+    (initialized)="onInitialized(tree)"
+  >
+    <ng-template #treeNodeTemplate let-node>
+      <span title="{{node.data.subTitle}}">{{ node.data.name }}</span>
+      <span class="pull-right">{{ childrenCount(node) }}</span>
+      <button (click)="go($event)">Custom Action</button>
+    </ng-template>
+    <ng-template #loadingTemplate>Loading, please hold....</ng-template>
+  </tree-root>
 </div>
