@@ -1,16 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {TreeNode, ITreeOptions, IActionMapping, TREE_ACTIONS, KEYS} from "angular-tree-component";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {
+  TreeNode, ITreeOptions, IActionMapping, TREE_ACTIONS, KEYS, TreeComponent
+} from "angular-tree-component";
 
-const actionMapping:IActionMapping = {
+const actionMapping: IActionMapping = {
   mouse: {
     contextMenu: (tree, node, $event) => {//右击
       $event.preventDefault();//必须
-      alert(`context menu for ${node.data.name}`);
+      // alert(`context menu for ${node.data.name}`);
     },
     dblClick: (tree, node, $event) => {//双击左键
       if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
     },
-    click: (tree, node, $event) => {
+    click: (tree, node, $event) => {//左键
       $event.shiftKey
         ? TREE_ACTIONS.TOGGLE_SELECTED_MULTI(tree, node, $event)
         : TREE_ACTIONS.TOGGLE_SELECTED(tree, node, $event);
@@ -27,7 +29,9 @@ const actionMapping:IActionMapping = {
 })
 export class NgxTreeComponent implements OnInit {
   nodes: any[];
-  nodes2 = [{name: 'root'}, {name: 'root2'}];
+  currentNode: any;
+
+  @ViewChild('tree') treeComponent: TreeComponent;
 
   constructor() {
   }
@@ -73,24 +77,8 @@ export class NgxTreeComponent implements OnInit {
               ]
             }
           ]
-        },
-        {
-          name: 'asyncroot',
-          hasChildren: true
         }
       ];
-
-      // for(let i = 0; i < 4; i++) {
-      //   this.nodes.push({
-      //     name: `rootDynamic${i}`,
-      //     subTitle: `root created dynamically ${i}`,
-      //     children: new Array((i + 1) * 100).fill(null).map((item, n) => ({
-      //       name: `childDynamic${i}.${n}`,
-      //       subTitle: `child created dynamically ${i}`,
-      //       hasChildren: false
-      //     }))
-      //   });
-      // }
     }, 1);
   }
 
@@ -111,31 +99,11 @@ export class NgxTreeComponent implements OnInit {
     alert('this method is on the app component');
   }
 
-  getChildren(node:any) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(this.asyncChildren.map((c) => {
-        return Object.assign({}, c, {
-          hasChildren: node.level < 5
-        });
-      })), 1000);
-    });
-  }
-
-  asyncChildren = [
-    {
-      name: 'child2.1',
-      subTitle: 'new and improved'
-    }, {
-      name: 'child2.2',
-      subTitle: 'new and improved2'
-    }
-  ];
-
   customTemplateStringOptions: ITreeOptions = {
     displayField: 'subTitle',
     isExpandedField: 'expanded',
     idField: 'uuid',
-    getChildren: this.getChildren.bind(this),
+    // getChildren: this.getChildren.bind(this),
     actionMapping,
     nodeHeight: 46,
     allowDrag: (node) => {
@@ -150,5 +118,27 @@ export class NgxTreeComponent implements OnInit {
     animateExpand: true,
     animateSpeed: 30,
     animateAcceleration: 1.2
+  }
+
+  public showMessage(message: string): void {
+    console.log(message);
+  }
+
+  getCurrentNode(node) {
+    if (node.data)
+      this.currentNode = node.data;
+  }
+
+  addTodo(tree) {
+    const children = this.currentNode.children;
+    if (children) {
+      children.push({name: 'new child', subTitle: 'new child'});
+    } else {
+      this.currentNode["children"] = [{
+        name: 'new child', subTitle: 'new child'
+      }];
+    }
+
+    tree.treeModel.update();
   }
 }

@@ -8,10 +8,42 @@
     (initialized)="onInitialized(tree)"
   >
     <ng-template #treeNodeTemplate let-node>
-      <span title="{{node.data.subTitle}}">{{ node.data.name }}</span>
+      <span title="{{node.data.subTitle}}" [contextMenu]="static" (click)="getCurrentNode(node)">{{ node.data.name }}</span>
       <span class="pull-right">{{ childrenCount(node) }}</span>
-      <button (click)="go($event)">Custom Action</button>
     </ng-template>
+
+    <context-menu #static (close)="showMessage('closed', $event)" (open)="showMessage('open', $event)">
+      <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="addTodo(tree)">
+        new
+      </ng-template>
+
+      <ng-template contextMenuItem [divider]="true"></ng-template>
+
+      <ng-template contextMenuItem [visible]="true" [enabled]="false" (execute)="showMessage('Hi, someone')"
+                   [subMenu]="saySubMenu">
+        refactor
+      </ng-template>
+
+      <context-menu #saySubMenu>
+        <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
+         rename
+        </ng-template>
+        <ng-template contextMenuItem (execute)="showMessage('Hola, ' + $event.item.name)">
+          move
+        </ng-template>
+        <ng-template contextMenuItem (execute)="showMessage('Salut, ' + $event.item.name)">
+          copy
+        </ng-template>
+      </context-menu>
+
+      <ng-template contextMenuItem [divider]="true"></ng-template>
+
+      <ng-template contextMenuItem [visible]="true" [enabled]="true"
+                   (execute)="showMessage('Someone said: something')">
+        Bye, someone
+      </ng-template>
+    </context-menu>
+
     <ng-template #loadingTemplate>Loading, please hold....</ng-template>
   </tree-root>
 </div>
