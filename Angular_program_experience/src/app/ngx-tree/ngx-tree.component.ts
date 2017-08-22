@@ -3,25 +3,6 @@ import {
   TreeNode, ITreeOptions, IActionMapping, TREE_ACTIONS, KEYS, TreeComponent
 } from "angular-tree-component";
 
-const actionMapping: IActionMapping = {
-  mouse: {
-    contextMenu: (tree, node, $event) => {//右击
-      $event.preventDefault();//必须
-      // alert(`context menu for ${node.data.name}`);
-    },
-    dblClick: (tree, node, $event) => {//双击左键
-      if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
-    },
-    click: (tree, node, $event) => {//左键
-      $event.shiftKey
-        ? TREE_ACTIONS.TOGGLE_SELECTED_MULTI(tree, node, $event)
-        : TREE_ACTIONS.TOGGLE_SELECTED(tree, node, $event);
-    }
-  },
-  keys: {
-    [KEYS.ENTER]: (tree, node, $event) => alert(`This is ${node.data.name}`)
-  }
-};
 @Component({
   selector: 'app-ngx-tree',
   templateUrl: './ngx-tree.component.html',
@@ -104,8 +85,28 @@ export class NgxTreeComponent implements OnInit {
     isExpandedField: 'expanded',
     idField: 'uuid',
     // getChildren: this.getChildren.bind(this),
-    actionMapping,
-    nodeHeight: 46,
+    actionMapping: {
+      mouse: {
+        contextMenu: (tree, node, $event) => {//右击
+          $event.preventDefault();//阻止浏览器默认行为
+          $event.stopPropagation();
+          // alert(`context menu for ${node.data.name}`);
+        },
+        dblClick: (tree, node, $event) => {//双击左键
+          if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
+        },
+        click: (tree, node, $event) => {//左键
+          this.currentNode = node;
+          $event.shiftKey
+            ? TREE_ACTIONS.TOGGLE_SELECTED_MULTI(tree, node, $event)
+            : TREE_ACTIONS.TOGGLE_SELECTED(tree, node, $event);
+        }
+      },
+      keys: {
+        [KEYS.ENTER]: (tree, node, $event) => alert(`This is ${node.data.name}`)
+      }
+    },
+    nodeHeight: 23,
     allowDrag: (node) => {
       // console.log('allowDrag?');
       return true;
@@ -118,25 +119,27 @@ export class NgxTreeComponent implements OnInit {
     animateExpand: true,
     animateSpeed: 30,
     animateAcceleration: 1.2
+  };
+
+  showMessage(message: string): void {
+    // console.log(message);
   }
 
-  public showMessage(message: string): void {
-    console.log(message);
-  }
-
-  getCurrentNode(node) {
-    if (node.data)
-      this.currentNode = node.data;
-  }
-
-  addTodo(tree) {
-    const children = this.currentNode.children;
-    if (children) {
-      children.push({name: 'new child', subTitle: 'new child'});
+  addNode(tree) {
+    if (this.currentNode.hasChildren) {
+      this.currentNode.data.children.push({name: "new child"});
     } else {
-      this.currentNode["children"] = [{
-        name: 'new child', subTitle: 'new child'
-      }];
+      this.currentNode.data.children = [{name: "new child"}];
+    }
+
+    tree.treeModel.update();
+  }
+
+  deleteNode(tree) {
+    if (!this.currentNode.isRoot) {
+      this.currentNode.parent.data.children = this.currentNode.parent.data.children.filter(node => node != this.currentNode.data);
+    } else {
+      this.currentNode.hide();
     }
 
     tree.treeModel.update();
