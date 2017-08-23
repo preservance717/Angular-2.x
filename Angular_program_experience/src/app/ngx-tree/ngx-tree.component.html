@@ -1,4 +1,4 @@
-<div class="tree">
+<div class="tree-demo">
   <tree-root
     #tree
     [nodes]="nodes"
@@ -8,8 +8,8 @@
     (initialized)="onInitialized(tree)"
   >
     <ng-template #treeNodeTemplate let-node>
-      <span title="{{node.data.subTitle}}" [contextMenu]="static">{{ node.data.name }}</span>
-      <span class="pull-right">{{ childrenCount(node) }}</span>
+      <span title="{{node.data.subTitle}}" [contextMenu]="static" style="white-space: nowrap">{{ node.data.name }}&nbsp;&nbsp;{{ childrenCount(node) }}</span>
+      <!--<span class="pull-right">{{ childrenCount(node) }}</span>-->
     </ng-template>
 
     <context-menu #static (close)="showMessage('closed', $event)" (open)="showMessage('open', $event)">

@@ -39,6 +39,7 @@ export class NgxTreeComponent implements OnInit {
         {
           name: 'root2',
           subTitle: 'the second root',
+          expanded: true,
           children: [
             {
               name: 'child2.1',
@@ -58,7 +59,89 @@ export class NgxTreeComponent implements OnInit {
               ]
             }
           ]
-        }
+        },
+        {
+          name: 'root2',
+          subTitle: 'the second root',
+          expanded: true,
+          children: [
+            {
+              name: 'child2.1',
+              subTitle: 'new and improved',
+              uuid: '11',
+              hasChildren: false
+            }, {
+              name: 'child2.2',
+              subTitle: 'new and improved2',
+              children: [
+                {
+                  uuid: 1001,
+                  name: 'subsub',
+                  subTitle: 'subsub',
+                  hasChildren: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'root2',
+          subTitle: 'the second root',
+          expanded: true,
+          children: [
+            {
+              name: 'child2.1',
+              subTitle: 'new and improved',
+              uuid: '11',
+              hasChildren: false
+            }, {
+              name: 'child2.2',
+              subTitle: 'new and improved2',
+              children: [
+                {
+                  uuid: 1001,
+                  name: 'subsub',
+                  subTitle: 'subsub',
+                  hasChildren: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'root2',
+          subTitle: 'the second root',
+          expanded: true,
+          children: [
+            {
+              name: 'child2.1',
+              subTitle: 'new and improved',
+              expanded: true,
+              uuid: '11',
+              hasChildren: false
+            }, {
+              name: 'child2.2',
+              subTitle: 'new and improved2',
+              children: [
+                {
+                  uuid: 1001,
+                  name: 'subsub',
+                  subTitle: 'subsub',
+                  hasChildren: false,
+                  children:[
+                    {
+                      name: 'child2.1',
+                      subTitle: 'new and improved',
+                      expanded: true,
+                      uuid: '11',
+                      hasChildren: false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
       ];
     }, 1);
   }
