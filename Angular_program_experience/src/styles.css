@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html, body, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
 .dropdown-menu {
   position: absolute;
   top: 100%;

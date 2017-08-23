@@ -3,6 +3,8 @@ import {
   TreeNode, ITreeOptions, IActionMapping, TREE_ACTIONS, KEYS, TreeComponent
 } from "angular-tree-component";
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-ngx-tree',
   templateUrl: './ngx-tree.component.html',
@@ -11,6 +13,7 @@ import {
 export class NgxTreeComponent implements OnInit {
   nodes: any[];
   currentNode: any;
+  sliderMoving: boolean = false;
 
   @ViewChild('tree') treeComponent: TreeComponent;
 
@@ -128,7 +131,7 @@ export class NgxTreeComponent implements OnInit {
                   name: 'subsub',
                   subTitle: 'subsub',
                   hasChildren: false,
-                  children:[
+                  children: [
                     {
                       name: 'child2.1',
                       subTitle: 'new and improved',
@@ -144,7 +147,87 @@ export class NgxTreeComponent implements OnInit {
         },
       ];
     }, 1);
+    this.reinitSize();
+    this.load();
   }
+
+  reinitSize() {
+    var width = $(window).width() - 6;
+    var height = $(window).height();
+    $("#divLeft").css({height: height + "px", width: width * 0.25 + "px"});
+    $("#divS").css({height: height - 2 + "px", width: "4px"});
+    $("#divSG").css({height: height - 2 + "px", width: "4px"});
+    $("#divRight").css({height: height + "px", width: (width * 0.75 - 17) + "px"});
+  }
+
+  load() {
+    var that = this;
+    $("#divS").on("mousedown", function (e) {
+      that.sliderMoving = true;
+      $("divP").css("cursor", "e-resize");
+    });
+
+    $("#divP").on("mousemove", function (e) {
+      if (that.sliderMoving) {
+        that.sliderGhostMoving(e);
+      }
+    });
+
+    $("#divP").on("mouseup", function (e) {
+      if (that.sliderMoving) {
+        that.sliderMoving = false;
+        that.sliderHorizontalMove(e);
+        $("#divP").css("cursor", "default");
+      }
+    });
+  }
+
+  //分隔条幽灵左右拖动(mousemove)
+  sliderGhostMoving(e) {
+    $("#divSG").css({left: this.mousePosition(e).x - 2, display: "block"});
+  };
+
+  //兼容各种浏览器的,获取鼠标真实位置
+  mousePosition(ev) {
+    if (!ev) ev = window.event;
+    if (ev.pageX || ev.pageY) {
+      return {x: ev.pageX, y: ev.pageY};
+    }
+    return {
+      x: ev.clientX + document.documentElement.scrollLeft - document.body.clientLeft,
+      y: ev.clientY + document.documentElement.scrollTop - document.body.clientTop
+    };
+  };
+
+  //完成分隔条左右拖动(mouseup)
+  sliderHorizontalMove(e) {
+    var lWidth = this.getElCoordinate($("#divSG")[0]).left - 2;
+    if(lWidth>1500){
+      lWidth = 1500;
+    }
+
+    var rWidth = $(window).width() - lWidth - 20;
+    console.log('r', rWidth);
+
+    $("#divLeft").css("width", lWidth + "px");
+    $("#divRight").css("width", rWidth + "px");
+    $("#divSG").css("display", "none");
+  };
+
+  //获取一个DIV的绝对坐标的功能函数,即使是非绝对定位,一样能获取到
+  getElCoordinate(dom) {
+    var t = dom.offsetTop;
+    var l = dom.offsetLeft;
+    dom = dom.offsetParent;
+    while (dom) {
+      t += dom.offsetTop;
+      l += dom.offsetLeft;
+      dom = dom.offsetParent;
+    }
+    ;
+    return {top: t, left: l};
+  };
+
 
   childrenCount(node: TreeNode): string {
     return node && node.children ? `(${node.children.length})` : '';
