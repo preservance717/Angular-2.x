@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, OnChanges, HostListener} from '@angular/core';
 import {
   TreeNode, ITreeOptions, IActionMapping, TREE_ACTIONS, KEYS, TreeComponent
 } from "angular-tree-component";
@@ -10,13 +10,18 @@ import * as $ from 'jquery';
   templateUrl: './ngx-tree.component.html',
   styleUrls: ['./ngx-tree.component.css']
 })
-export class NgxTreeComponent implements OnInit {
+
+export class NgxTreeComponent implements OnInit,OnChanges {
   nodes: any[];
   currentNode: any;
   sliderMoving: boolean = false;
 
   @ViewChild('tree') treeComponent: TreeComponent;
 
+  @HostListener("window:resize", [])
+  onWindowResize(){
+    this.reinitSize();
+  }
   constructor() {
   }
 
@@ -151,9 +156,14 @@ export class NgxTreeComponent implements OnInit {
     this.load();
   }
 
+  ngOnChanges(){
+    this.reinitSize();
+  }
+
   reinitSize() {
     var width = $(window).width() - 6;
     var height = $(window).height();
+    console.log("height", height);
     $("#divLeft").css({height: height + "px", width: width * 0.25 + "px"});
     $("#divS").css({height: height - 2 + "px", width: "4px"});
     $("#divSG").css({height: height - 2 + "px", width: "4px"});

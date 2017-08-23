@@ -1,6 +1,54 @@
 <div id="divP" style="width:100%; height:100%;">
-  <div id="divLeft" style="background-color: green; float: left; "></div>
+  <div id="divLeft" style="background-color: #efefef; float: left; ">
+    <tree-root
+      #tree
+      [nodes]="nodes"
+      [options]="customTemplateStringOptions"
+      [focused]="true"
+      (event)="onEvent($event)"
+      (initialized)="onInitialized(tree)"
+    >
+      <ng-template #treeNodeTemplate let-node>
+        <span title="{{node.data.subTitle}}" [contextMenu]="static" style="white-space: nowrap">{{ node.data.name }}&nbsp;&nbsp;{{ childrenCount(node) }}</span>
+        <!--<span class="pull-right">{{ childrenCount(node) }}</span>-->
+      </ng-template>
+
+      <context-menu #static (close)="showMessage('closed', $event)" (open)="showMessage('open', $event)">
+        <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="addNode(tree)">
+          new
+        </ng-template>
+
+        <ng-template contextMenuItem [divider]="true"></ng-template>
+
+        <ng-template contextMenuItem [visible]="true" [enabled]="false" (execute)="showMessage('Hi, someone')"
+                     [subMenu]="saySubMenu">
+          refactor
+        </ng-template>
+
+        <context-menu #saySubMenu>
+          <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
+            rename
+          </ng-template>
+          <ng-template contextMenuItem (execute)="showMessage('Salut')">
+            delete
+          </ng-template>
+          <ng-template contextMenuItem (execute)="showMessage('Salut, ' + $event.item.name)">
+            copy
+          </ng-template>
+        </context-menu>
+
+        <ng-template contextMenuItem [divider]="true"></ng-template>
+
+        <ng-template contextMenuItem [visible]="true" [enabled]="true"
+                     (execute)="deleteNode(tree)">
+          delete
+        </ng-template>
+      </context-menu>
+
+      <ng-template #loadingTemplate>Loading, please hold....</ng-template>
+    </tree-root>
+  </div>
   <div id="divS" class="gf_s" style="float: left;"></div>
   <div id="divSG" class="gf_s_g" style="float: left;"></div>
-  <div id="divRight" style="background-color: blue; float: left;"></div>
+  <div id="divRight" style="float: left;"></div>
 </div>
