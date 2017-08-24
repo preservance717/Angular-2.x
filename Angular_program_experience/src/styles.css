@@ -64,5 +64,8 @@ a {
 
 .tree-children{
   overflow: visible !important;
-  width:calc(100% - 22px);
+}
+.tree-node{
+  position: relative;
+  background: #efefef;
 }

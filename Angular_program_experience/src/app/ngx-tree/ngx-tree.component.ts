@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild, OnChanges, HostListener} from '@angular/core';
+import {Component, OnInit, ViewChild, OnChanges, HostListener, Input} from '@angular/core';
 import {
   TreeNode, ITreeOptions, IActionMapping, TREE_ACTIONS, KEYS, TreeComponent
 } from "angular-tree-component";
+import {ContextMenuService, ContextMenuComponent} from 'ngx-contextmenu';
 
 import * as $ from 'jquery';
 
@@ -17,12 +18,24 @@ export class NgxTreeComponent implements OnInit,OnChanges {
   sliderMoving: boolean = false;
 
   @ViewChild('tree') treeComponent: TreeComponent;
+  @Input() contextMenu: ContextMenuComponent;
 
   @HostListener("window:resize", [])
   onWindowResize(){
     this.reinitSize();
   }
-  constructor() {
+  constructor(private contextMenuService: ContextMenuService) {
+  }
+
+  onContextMenu($event: MouseEvent, item: any): void {
+    this.contextMenuService.show.next({
+      // Optional - if unspecified, all context menu components will open
+      contextMenu: this.contextMenu,
+      event: $event,
+      item: item,
+    });
+    $event.preventDefault();
+    $event.stopPropagation();
   }
 
   ngOnInit() {
@@ -163,7 +176,6 @@ export class NgxTreeComponent implements OnInit,OnChanges {
   reinitSize() {
     var width = $(window).width() - 6;
     var height = $(window).height();
-    console.log("height", height);
     $("#divLeft").css({height: height + "px", width: width * 0.25 + "px"});
     $("#divS").css({height: height - 2 + "px", width: "4px"});
     $("#divSG").css({height: height - 2 + "px", width: "4px"});
@@ -217,7 +229,6 @@ export class NgxTreeComponent implements OnInit,OnChanges {
     }
 
     var rWidth = $(window).width() - lWidth - 20;
-    console.log('r', rWidth);
 
     $("#divLeft").css("width", lWidth + "px");
     $("#divRight").css("width", rWidth + "px");
@@ -253,7 +264,6 @@ export class NgxTreeComponent implements OnInit,OnChanges {
 
   go($event) {
     $event.stopPropagation();
-    alert('this method is on the app component');
   }
 
   customTemplateStringOptions: ITreeOptions = {
@@ -264,15 +274,15 @@ export class NgxTreeComponent implements OnInit,OnChanges {
     actionMapping: {
       mouse: {
         contextMenu: (tree, node, $event) => {//右击
+          this.currentNode = node;
+          this.onContextMenu($event,"");
           $event.preventDefault();//阻止浏览器默认行为
-          $event.stopPropagation();
-          // alert(`context menu for ${node.data.name}`);
         },
         dblClick: (tree, node, $event) => {//双击左键
           if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
         },
         click: (tree, node, $event) => {//左键
-          this.currentNode = node;
+          // this.currentNode = node;
           $event.shiftKey
             ? TREE_ACTIONS.TOGGLE_SELECTED_MULTI(tree, node, $event)
             : TREE_ACTIONS.TOGGLE_SELECTED(tree, node, $event);
