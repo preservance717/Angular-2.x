@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import {Routes, RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
+import {APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from "@angular/common";
 
 const appRoutes: Routes = [
-  {path: '', component: SearchComponent},
-  {path: '', redirectTo: '', pathMatch: 'full'}
+  {path: 'search', component: SearchComponent},
+  {path: '', redirectTo: 'search', pathMatch: 'full'}
 ];
 
 
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,8 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class SpotifyService{
+  static  BASE_URL: string = 'https://api.spotify.com/v1/search';
+
   constructor(public http:Http){
 
   }
@@ -13,7 +15,7 @@ export class SpotifyService{
       `q=${query}`,
       `type=track`
     ].join("&");
-    let queryURL: string = `https://api.spotify.com/v1/search?${params}`;
+    let queryURL: string = `${SpotifyService.BASE_URL}/${params}`;
     return this.http.request(queryURL).map(res => res.json());
   }
 }
